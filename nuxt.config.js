@@ -34,6 +34,7 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  css: ['~/assets/styles/main.css'],
 }
 
