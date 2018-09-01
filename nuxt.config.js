@@ -16,6 +16,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
+  css: ["@/assets/styles/css/main.css"],
   loading: { color: '#3B8070' },
   /*
   ** Build configuration
@@ -33,8 +34,7 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
   },
-  css: ['~/assets/styles/main.css'],
 }
 
