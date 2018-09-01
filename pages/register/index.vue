@@ -1,48 +1,33 @@
 <template>
     <div class="container">
         <input type="text" >
-        <button class="register-button button" @click="registerButton" v-if="false">注册</button>
-        <button class=" button" @click="getMarketData">请求</button>
+        <button class="register-button button" @click="registerButton" v-if="true">注册</button>
     </div>
 </template>
 
 <script>
 import qs from "qs";
-// import axios from "axios";
+import axios from "axios";
+import { api } from '~/plugins/axios2'
 import { getData } from '~/plugins/axios.js'
 import encrypt from "~/utils/rsa.js";
 export default {
-    data() {
-        return {
+  data() {
+    return {
 
-        }
-    },
-    methods: {
-        registerButton() {
-            //do注册
-            // var userName="13087006827";
-            // var code="156966";
-            // var password=encrypt(123456);
-            // var passwordAgain=encrypt(156321);
-            // var agreement=true;
-            // axios.post("https:www.jexzh.com/api/v2/inner/user/regist",qs.stringify({
-            //     userName,code,password,passwordAgain,agreement,
-            // })).then(res=>{
-            // if(res.data && res.data.data && res.data.code == 0){
-            //     console.log(res.data.data);
-            // }
-            // }).catch(error=>{
-            //     console.log(error);
-            // })
-        },
-        getMarketData() {
-             getData('api/v2/inner/market/coin/ticker','get','').then( res => {
-                console.log(res)
-             }), err => {
-                console.log(err)
-             }
-        }
-    },
+    }
+  },
+  methods: {
+    async registerButton() {
+      let {data} = await api.post("https://www.jexzh.com/api/v2/inner/user/findPassword/resetPassword", {
+        userName: "130870006827",
+        newPassword: "123456",
+        confirmPassword: "123456",
+        uuid: "16358e5a-fb9f-449e-bc7b-5a660ce0b59c",
+      })
+      console.log(data)
+    }
+  },
 }
 </script>
 

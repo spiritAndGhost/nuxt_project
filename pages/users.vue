@@ -25,12 +25,15 @@ export default {
   key: to => to.fullPath,
   // Called to know which transition to apply
   transition(to, from) {
-      console.log(to);
-      console.log(from);
+      // console.log(to);
+      // console.log(from);
     if (!from) return 'slide-left'
+    // console.log(typeof to.query.page);
+    // console.log(typeof +to.query.page);
     return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
   },
   async asyncData({ query }) {
+    // console.log(query);
     const page = +query.page || 1
     const { data } = await axios.get(`https://reqres.in/api/users?page=${page}`)
     return {

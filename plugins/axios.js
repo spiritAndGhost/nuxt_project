@@ -9,10 +9,10 @@ export function fetch(config){
            headers:{
               'Content-Type': 'application/json',
             },
-            // 请求超时  
+            // 请求超时
             timeout: 5000,
             //定义请求根目录
-            baseURL: 'https://www.jexzh.com/'
+            baseURL: 'http://test.coinfex.com/'
         });
        //请求成功后执行的函数
         instance(config).then(res =>{
