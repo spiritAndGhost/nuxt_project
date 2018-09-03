@@ -1,0 +1,211 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin trader-input-placeholder-color {
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #666870;
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #666870;
+  }
+  ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #666870;
+  }
+}
+@mixin input-focus {
+  input:focus {
+    outline: none;
+    border: 1px solid #1f6188;
+  }
+}
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where normal styles apply
+1800px + :      Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint==tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+
+@mixin aliCSS {
+  #nc_1__scale_text {
+    width: 100% !important;
+    height: 48px;
+    line-height: 48px !important;
+  }
+  .nc-lang-cnt {
+    width: 100% !important;
+    height: 48px !important;
+  }
+
+  /*请按住滑块，拖动到最右边  字体颜色及其行高*/
+  .nc-lang-cnt {
+    font-family: MicrosoftYaHei !important;
+    line-height: 48px !important;
+    font-size: 14px !important;
+    /*background: #1E212B !important;*/
+  }
+  /*请按住滑块，拖动到最右边  背景颜色*/
+  .nc-container .nc_scale .scale_text {
+    background: #1e212b !important;
+  }
+  .nc-lang-cnt b {
+    font-size: 14px !important;
+    line-height: 48px !important;
+    color: #666870 !important;
+  }
+  /*验证前 箭头的字体样式*/
+  .nc-container .nc_scale .btn_slide {
+    width: 13.5% !important;
+    height: 48px !important;
+    font-size: 12px !important;
+    color: #cacdce !important;
+    letter-spacing: 0 !important;
+    background: #32343e !important;
+    line-height: 48px !important;
+    text-align: center !important;
+  }
+  /*验证通过 √的字体样式*/
+  .nc-container .nc_scale .btn_ok {
+    width: 13.5% !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 16px !important;
+    background: #32343e !important;
+    color: rgb(49, 109, 77) !important;
+  }
+
+  .nc_wrapper {
+    width: 100% !important;
+    height: 48px !important;
+  }
+  #nc_1_n1z {
+    width: 13.5% !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    text-align: center !important;
+    background: #32343e !important;
+  }
+  .nc_scale span {
+    border: none !important;
+  }
+  .nc_scale {
+    width: 100% !important;
+    height: 48px !important;
+    background: #e8e8e8 !important;
+    border: none !important;
+    /* 默认背景色 */
+  }
+
+  .nc_scale div.nc_bg {
+    background: #1e212b !important;
+    /* 滑过时的背景色 */
+  }
+
+  .nc_scale .scale_text2 {
+    color: #fff !important;
+    /* 滑过时的字体颜色 */
+  }
+
+  /*网络不给力151 69 63*/
+  .errloading {
+    border: 1px solid #32343e !important;
+    color: #ef9f06 !important;
+    background: #1e212b !important;
+    width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .errloading .nc-lang-cnt {
+    width: 31% !important;
+    color: #666870 !important;
+  }
+  .errloading span.nc-errcode {
+    display: none !important;
+  }
+  /*错误图标*/
+  .nc-container .errloading .icon_warn {
+    color: rgb(151, 69, 63) !important;
+  }
+  /*点击刷新 样式*/
+  .nc-container .errloading a {
+    color: #3a8bbb !important;
+  }
+  /*阿里出现图片*/
+  .nc-container .nc_scale .clickCaptcha {
+    position: absolute;
+    width: 256px !important;
+    height: 274px !important;
+    top: 49px !important;
+    border: none;
+  }
+  .nc-container .clickCaptcha .clickCaptcha_img img {
+    margin-left: 13px !important;
+  }
+  .nc-container .imgCaptcha {
+    position: absolute;
+    top: 50px !important;
+  }
+
+  /*阿里出现输入验证码 提交样式*/
+  .nc-container .imgCaptcha .nc_scale_submit {
+    display: flex;
+    align-items: center;
+  }
+}
