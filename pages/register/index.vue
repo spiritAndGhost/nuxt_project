@@ -16,6 +16,9 @@
         <span class="introduce--text" v-text="$t('verificationCode')"></span>
         <div class="input-box">
           <input type="text" class="input" placeholder="请输入验证码">
+          <div class="get-code">
+            <span class="get-code--text" v-text="$t('get_code')"></span>
+          </div>
         </div>
         <span class="introduce--text" v-text="$t('login_password')"></span>
         <div class="input-box">
@@ -35,7 +38,6 @@
           <span class="account--text">已有账号？</span>
           <span class="login--text">去登录</span>
         </div>
-
       </div>
     </div>
   </div>
@@ -107,12 +109,29 @@ export default {
       flex-direction: row;
       justify-content: flex-start;
       background: $color-depth-black;
+      position: relative;
       .input {
         width: 100%;
         background: $color-depth-black;
         border: none;
         text-indent: 16px;
         outline: none;
+      }
+      .get-code {
+        height: 48px;
+        color: $color-light-blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        &--text {
+          padding: 0 10px;
+          border-left: 1px solid $color-light-blue;
+          line-height: 14px;
+          display: inline-block;
+        }
       }
       &__children--left {
         box-sizing: border-box;
